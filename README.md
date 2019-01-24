@@ -10,7 +10,14 @@ We are creating a project in which we analyze data from twitter API
 
 3. copy `twitter.conf` to $HOME/flume/ <br />
     `cd $HOME/flume/` <br />
-    `wget https://github.com/jodth07/hadoop-BigData/blob/master/twitter.conf`<br />
+    copy contens of twitter.conf to `flume/twitter.conf`
 
-### to run flume to get the data
+4. update info in `twitter.conf` file
+ - TwitterAgent.sources.Twitter.consumerKey = <add your twitter app api key>
+ - TwitterAgent.sources.Twitter.consumerSecret = <add your twitter app  api secret key> 
+ - TwitterAgent.sources.Twitter.accessToken = <add your twitter app  accessToken> 
+ - TwitterAgent.sources.Twitter.accessTokenSecret = <add your twitter app  accessTokenSecret>
+
+### to run flume to get the data 
+- as of now, this instruction does not work. Working on fixing it.
 `bin/flume-ng agent -name TwitterAgent --conf conf --conf-file $HOME/flume/twitter.conf -Dflume.root.logger=INFO,console`
