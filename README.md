@@ -13,11 +13,21 @@ We are creating a project in which we analyze data from twitter API
     copy contens of twitter.conf to `flume/twitter.conf`
 
 4. update info in `twitter.conf` file
- - TwitterAgent.sources.Twitter.consumerKey = <add your twitter app api key>
- - TwitterAgent.sources.Twitter.consumerSecret = <add your twitter app  api secret key> 
- - TwitterAgent.sources.Twitter.accessToken = <add your twitter app  accessToken> 
- - TwitterAgent.sources.Twitter.accessTokenSecret = <add your twitter app  accessTokenSecret>
+ - TwitterAgent.sources.Twitter.consumerKey = `<add your twitter app api key>`
+ - TwitterAgent.sources.Twitter.consumerSecret = `<add your twitter app  api secret key>`
+ - TwitterAgent.sources.Twitter.accessToken = `<add your twitter app  accessToken>`
+ - TwitterAgent.sources.Twitter.accessTokenSecret = `<add your twitter app  accessTokenSecret>`
+ - TwitterAgent.sinks.HDFS.hdfs.path = hdfs://`<your hdfs url>:8020>`/techfield/orange_data/
+
+#### Note :
+Your hdfs link can be found via this command: <br />
+`cat /etc/hosts`
+
 
 ### to run flume to get the data 
-- as of now, this instruction does not work. Working on fixing it.
-`bin/flume-ng agent -name TwitterAgent --conf conf --conf-file $HOME/flume/twitter.conf -Dflume.root.logger=INFO,console`
+`flume-ng agent -name TwitterAgent --conf conf --conf-file $HOME/flume/twitter.conf -Dflume.root.logger=INFO,console`
+
+#### Note:
+if you run into a Authentication Failure, run this command <br />
+`sudo ntpdate ntp.ubuntu.com`
+repeat step above.
