@@ -53,7 +53,7 @@ repeat step above.
 `hdfs dfs -cp techfield/<nameOfFile> techfield/input/tweets`
 
 6. create Table into `hive`
-`CREATE EXTERNAL TABLE twiiter ROW FORMAT SERDE "org.apache.hadoop.hive.serde2.avro.AvroSerDe" STORED AS INPUTFORMAT "org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat" LOCATION "hdfs://sandbox.hortonworks.com:8020/user/maria_dev/techfield/output" TBLPROPERTIES{"avro.schemal.url"="techfield/tweets.avsc"}`
+`CREATE EXTERNAL TABLE tweets ROW FORMAT SERDE "org.apache.hadoop.hive.serde2.avro.AvroSerDe" STORED AS INPUTFORMAT "org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat" OUTPUTFORMAT "org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat" LOCATION "hdfs://sandbox.hortonworks.com:8020/user/maria_dev/techfield/output" TBLPROPERTIES ("avro.schema.url"="techfield/avsc/tweets.avsc");`
 
 7. load avro file
 `LOAD DATA INPATH "techfield/input/tweets" INTO TABLE tweets`
