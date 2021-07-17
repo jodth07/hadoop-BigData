@@ -1,6 +1,6 @@
 ## Part 1 : Getting Data from Twitter with Flume 
-1. Create folder `/techfield/orange_data/` in hdfs <br />
-    `hdfs dfs -mkdir -p techfield/orange_data/`
+1. Create folder `$home/orange_data/` in hdfs <br />
+    `hdfs dfs -mkdir -p $home/orange_data/`
 
 
 2. Create folder if not exits $HOME/flume/ in local directories (maybe maria_dev) <br />
@@ -22,7 +22,7 @@
  - TwitterAgent.sources.Twitter.consumerSecret = `<add your twitter app  api secret key>`
  - TwitterAgent.sources.Twitter.accessToken = `<add your twitter app  accessToken>`
  - TwitterAgent.sources.Twitter.accessTokenSecret = `<add your twitter app  accessTokenSecret>`
- - TwitterAgent.sinks.HDFS.hdfs.path = hdfs://`<your hdfs url>:8020>`/techfield/orange_data/
+ - TwitterAgent.sinks.HDFS.hdfs.path = hdfs://`<your hdfs url>:8020>` $home/orange_data/
 
 
 
@@ -39,5 +39,5 @@ repeat step above.
 
 
 7. Check that you have stored the data <br />
-`hdfs dfs -ls techfield/orange_data/`
+`hdfs dfs -ls $home/orange_data/`
 there should be some new created files.
